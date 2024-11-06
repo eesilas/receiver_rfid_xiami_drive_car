@@ -16,6 +16,29 @@ radio.onReceivedNumber(function (receivedNumber) {
         xiamiBoard.setIndexColor(1, 0xff8000)
     }
 })
+function action () {
+    if (act1 == 1) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+    } else {
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+    }
+    if (act1 == 2) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
+    } else {
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+    }
+    if (act3 == 3) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+    } else {
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+    }
+}
 function init () {
     basic.showIcon(IconNames.Angry)
     xiamiBoard.ledBlank()
