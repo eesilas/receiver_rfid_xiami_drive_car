@@ -20,6 +20,7 @@ function action () {
     if (act1 == 1) {
         xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
         xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+        led.plot(0, 0)
     } else {
         xiamiBoard.motorStop(MOTOR.M1)
         xiamiBoard.motorStop(MOTOR.M2)
@@ -27,6 +28,7 @@ function action () {
     if (act1 == 2) {
         xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
         xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
+        led.plot(1, 0)
     } else {
         xiamiBoard.motorStop(MOTOR.M1)
         xiamiBoard.motorStop(MOTOR.M2)
@@ -34,6 +36,7 @@ function action () {
     if (act3 == 3) {
         xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
         xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+        led.plot(2, 0)
     } else {
         xiamiBoard.motorStop(MOTOR.M1)
         xiamiBoard.motorStop(MOTOR.M2)
