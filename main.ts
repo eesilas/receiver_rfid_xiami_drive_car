@@ -20,7 +20,7 @@ radio.onReceivedNumber(function (receivedNumber) {
         xiamiBoard.setIndexColor(0, 0xff00ff)
         xiamiBoard.setIndexColor(1, 0xff00ff)
     } else if (receivedNumber == 123) {
-    	
+        action()
     } else {
         xiamiBoard.setIndexColor(0, 0xff8000)
         xiamiBoard.setIndexColor(1, 0xff8000)
