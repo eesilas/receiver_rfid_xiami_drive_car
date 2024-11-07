@@ -1,6 +1,6 @@
 {
     "name": "receiver_RFID_xiami_drive_car",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "",
     "dependencies": {
         "core": "*",
