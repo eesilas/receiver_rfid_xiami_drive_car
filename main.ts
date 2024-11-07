@@ -65,16 +65,19 @@ function blink () {
     }
 }
 function init () {
+    music.setVolume(65)
     basic.showIcon(IconNames.Angry)
     xiamiBoard.ledBlank()
     xiamiBoard.initXiaMiBoard()
     xiamiBoard.setBrightness(140)
     radio.setTransmitPower(7)
     radio.setGroup(123)
-    xiamiBoard.OLEDshowUserText("DFRobot", 0, 0)
+    xiamiBoard.OLEDshowUserText("RFID instruct sequential car", 0, 0)
     act1 = 0
     act2 = 0
     act3 = 0
+    act4 = 0
+    act5 = 0
 }
 let act5 = 0
 let act4 = 0
