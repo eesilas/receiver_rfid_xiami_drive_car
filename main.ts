@@ -1,3 +1,14 @@
+function FF () {
+    for (let index = 0; index < 1; index++) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
+        basic.pause(1000)
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+        xiamiBoard.setIndexColor(0, 0x007fff)
+        xiamiBoard.setIndexColor(1, 0x007fff)
+    }
+}
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 111) {
         action()
@@ -24,39 +35,17 @@ radio.onReceivedNumber(function (receivedNumber) {
 function action () {
     while (act2 == 1) {
         act2 = 0
-        for (let index = 0; index < 1; index++) {
-            xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
-            xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
-            basic.pause(500)
-            xiamiBoard.motorStop(MOTOR.M1)
-            xiamiBoard.motorStop(MOTOR.M2)
-            xiamiBoard.setIndexColor(0, 0x00ff00)
-            xiamiBoard.setIndexColor(1, 0x00ff00)
-        }
+        TL()
+        FF()
     }
     while (act3 == 1) {
         act3 = 0
-        for (let index = 0; index < 1; index++) {
-            xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
-            xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
-            basic.pause(1000)
-            xiamiBoard.motorStop(MOTOR.M1)
-            xiamiBoard.motorStop(MOTOR.M2)
-            xiamiBoard.setIndexColor(0, 0x007fff)
-            xiamiBoard.setIndexColor(1, 0x007fff)
-        }
+        FF()
     }
     while (act4 == 1) {
         act4 = 0
-        for (let index = 0; index < 1; index++) {
-            xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
-            xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
-            basic.pause(500)
-            xiamiBoard.motorStop(MOTOR.M1)
-            xiamiBoard.motorStop(MOTOR.M2)
-            xiamiBoard.setIndexColor(0, 0xffff00)
-            xiamiBoard.setIndexColor(1, 0xffff00)
-        }
+        TR()
+        FF()
     }
     while (act5 == 1) {
         act5 = 0
@@ -65,6 +54,17 @@ function action () {
         xiamiBoard.setIndexColor(1, 0xb09eff)
     }
 }
+input.onButtonPressed(Button.A, function () {
+    for (let index = 0; index < 1; index++) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+        basic.pause(500)
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+        xiamiBoard.setIndexColor(0, 0xffff00)
+        xiamiBoard.setIndexColor(1, 0xffff00)
+    }
+})
 function blink () {
     for (let index = 0; index < 4; index++) {
         xiamiBoard.setIndexColor(0, 0xff0000)
@@ -81,6 +81,17 @@ function blink () {
         basic.pause(100)
     }
 }
+function TL () {
+    for (let index = 0; index < 1; index++) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
+        basic.pause(500)
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+        xiamiBoard.setIndexColor(0, 0x00ff00)
+        xiamiBoard.setIndexColor(1, 0x00ff00)
+    }
+}
 function init () {
     music.setVolume(65)
     basic.showIcon(IconNames.Angry)
@@ -95,6 +106,17 @@ function init () {
     act3 = 0
     act4 = 0
     act5 = 0
+}
+function TR () {
+    for (let index = 0; index < 1; index++) {
+        xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
+        xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+        basic.pause(500)
+        xiamiBoard.motorStop(MOTOR.M1)
+        xiamiBoard.motorStop(MOTOR.M2)
+        xiamiBoard.setIndexColor(0, 0xffff00)
+        xiamiBoard.setIndexColor(1, 0xffff00)
+    }
 }
 let act1 = 0
 let act5 = 0
