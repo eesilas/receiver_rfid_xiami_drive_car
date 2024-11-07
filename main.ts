@@ -28,34 +28,48 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 function action () {
     if (act1 == 1) {
+        led.plot(0, 0)
         xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
         xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
-        led.plot(0, 0)
+        basic.pause(100)
+        act1 = 0
     } else {
         xiamiBoard.motorStop(MOTOR.M1)
         xiamiBoard.motorStop(MOTOR.M2)
     }
     if (act2 == 1) {
+        led.plot(1, 0)
         xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
         xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
-        led.plot(1, 0)
+        basic.pause(100)
+        act2 = 0
     } else {
         xiamiBoard.motorStop(MOTOR.M1)
         xiamiBoard.motorStop(MOTOR.M2)
     }
     if (act3 == 1) {
+        led.plot(2, 0)
         xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
         xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
-        led.plot(2, 0)
-    } else if (act4 == 1) {
-        music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.InBackground)
-        led.plot(3, 0)
-    } else if (act5 == 1) {
-        blink()
-        led.plot(4, 0)
+        basic.pause(100)
+        act3 = 0
     } else {
         xiamiBoard.motorStop(MOTOR.M1)
         xiamiBoard.motorStop(MOTOR.M2)
+    }
+    if (act4 == 1) {
+        music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.InBackground)
+        led.plot(3, 0)
+        act4 = 0
+    } else {
+        basic.showIcon(IconNames.Heart)
+    }
+    if (act5 == 1) {
+        blink()
+        led.plot(4, 0)
+        act5 = 0
+    } else {
+        basic.showIcon(IconNames.SmallHeart)
     }
 }
 function blink () {
