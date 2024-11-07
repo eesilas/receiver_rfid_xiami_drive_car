@@ -17,48 +17,68 @@ radio.onReceivedNumber(function (receivedNumber) {
         xiamiBoard.setIndexColor(1, 0xff9da5)
     } else if (receivedNumber == 115) {
         act5 = 1
-        xiamiBoard.setIndexColor(0, 0xff00ff)
-        xiamiBoard.setIndexColor(1, 0xff00ff)
+        xiamiBoard.setIndexColor(0, 0x00ffff)
+        xiamiBoard.setIndexColor(1, 0x00ffff)
     }
 })
 function action () {
     while (act2 == 1) {
         act2 = 0
-        led.plot(1, 0)
         for (let index = 0; index < 1; index++) {
             xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CW, 32)
             xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
             basic.pause(500)
             xiamiBoard.motorStop(MOTOR.M1)
             xiamiBoard.motorStop(MOTOR.M2)
+            xiamiBoard.setIndexColor(0, 0x00ff00)
+            xiamiBoard.setIndexColor(1, 0x00ff00)
         }
     }
     while (act3 == 1) {
         act3 = 0
-        led.plot(2, 0)
         for (let index = 0; index < 1; index++) {
             xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
             xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CCW, 32)
-            basic.pause(500)
+            basic.pause(1000)
             xiamiBoard.motorStop(MOTOR.M1)
             xiamiBoard.motorStop(MOTOR.M2)
+            xiamiBoard.setIndexColor(0, 0x007fff)
+            xiamiBoard.setIndexColor(1, 0x007fff)
         }
     }
     while (act4 == 1) {
         act4 = 0
-        music._playDefaultBackground(music.builtInPlayableMelody(Melodies.Prelude), music.PlaybackMode.InBackground)
-        led.plot(3, 0)
+        for (let index = 0; index < 1; index++) {
+            xiamiBoard.motorRun(MOTOR.M1, DIRECTION.CCW, 32)
+            xiamiBoard.motorRun(MOTOR.M2, DIRECTION.CW, 32)
+            basic.pause(500)
+            xiamiBoard.motorStop(MOTOR.M1)
+            xiamiBoard.motorStop(MOTOR.M2)
+            xiamiBoard.setIndexColor(0, 0xffff00)
+            xiamiBoard.setIndexColor(1, 0xffff00)
+        }
     }
     while (act5 == 1) {
         act5 = 0
         blink()
-        led.plot(4, 0)
+        xiamiBoard.setIndexColor(0, 0xb09eff)
+        xiamiBoard.setIndexColor(1, 0xb09eff)
     }
 }
 function blink () {
     for (let index = 0; index < 4; index++) {
         xiamiBoard.setIndexColor(0, 0xff0000)
+        basic.pause(100)
         xiamiBoard.setIndexColor(1, 0x00ff00)
+        basic.pause(100)
+        xiamiBoard.setIndexColor(0, 0xffff00)
+        basic.pause(100)
+        xiamiBoard.setIndexColor(1, 0x00ff00)
+        basic.pause(100)
+        xiamiBoard.setIndexColor(0, 0xb09eff)
+        basic.pause(100)
+        xiamiBoard.setIndexColor(0, 0xff0080)
+        basic.pause(100)
     }
 }
 function init () {
